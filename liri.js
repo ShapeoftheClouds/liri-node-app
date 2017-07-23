@@ -25,7 +25,11 @@ function twitter() {
 var client = new Twitter(keys);
 var params = {screen_name: 'ShapeoftheCloud', count: 20}; 
 client.get('statuses/user_timeline.json', params, function(error, tweets, response) {
-		console.log(tweets); 
-		console.log(response);
+
+for (index = 0; index < tweets.length; index++) {
+	var myTweets = tweets[index].text;
+	console.log(myTweets);
+} 
+
 });
 }
