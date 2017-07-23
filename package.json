@@ -1,0 +1,24 @@
+{
+  "name": "liri",
+  "version": "1.0.0",
+  "description": "Pulls twitter, spotify, and movie information",
+  "main": "keys.js",
+  "dependencies": {
+    "twit": "^2.2.9",
+    "twitter": "^1.7.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ShapeoftheClouds/liri-node-app.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ShapeoftheClouds/liri-node-app/issues"
+  },
+  "homepage": "https://github.com/ShapeoftheClouds/liri-node-app#readme"
+}
