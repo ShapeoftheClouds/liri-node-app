@@ -70,92 +70,22 @@ function spotify() {
 	});
 }
 
-// function movies (myMovies) {
-//     //console.log("movieName:", movieName);
-//     var queryUrl = "http://www.omdbapi.com/?t=" + myMovies + 
-//                    "&y=&plot=short&tomatoes=true&apikey=c494508d";
-//     console.log(queryUrl);
-//     request(queryUrl, function (error, response, body) {
-//           //console.log('body:', body);
-//           if ((error === null) && (response.statusCode === 200)) {
-//             var data =  JSON.parse(body);
-//             //console.log(data);
-//             console.log('---------------------------');
-//             console.log(' ');
-//             console.log('Title of Movie: ' + data.Title);
-//             writeToLogFile('\nTitle of Movie: ' + data.Title);
-//             console.log('Year Released: ' + data.Year);
-//             writeToLogFile('\nYear Released: ' + data.Year);
-//             console.log('Rating: ' + data.Rated);
-//             writeToLogFile('\nRating: ' + data.Rated);
-//             console.log('Country where produced: ' + data.Country);
-//             writeToLogFile('\nCountry where produced: ' + data.Country);
-//             console.log('Language: ' + data.Language);
-//             writeToLogFile('\nLanguage: ' + data.Language);
-//             console.log('Plot: ' + data.Plot);
-//             writeToLogFile('\nPlot: ' + data.Plot);
-//             console.log('Actors: ' + data.Actors);
-//             writeToLogFile('\nActors: ' + data.Actors);
-//             console.log('Rotten Tomatoes URL: ' + data.tomatoURL);
-//             writeToLogFile('\nRotten Tomatoes URL: ' + data.tomatoURL);
-//             console.log(' ');
-//             console.log('---------------------------');
-//           } 
-//         }
-// });
-// }
-
 function movies() {
-// Store all of the arguments in an array
-var nodeArgs = process.argv;
-// Create an empty variable for holding the movie name
-var movieName = "";
-// Loop through all the words in the node argument
-// And do a little for-loop magic to handle the inclusion of "+"s
-for (var index = 2; index < nodeArgs.length; index++) {
-  if (index > 2 && index < nodeArgs.length) {
-    movieName = movieName + "+" + nodeArgs[index];
-  }
-  else {
-    movieName += nodeArgs[index];
-  }
+	var movieInput = process.argv[3];
+	var queryUrl = "http://www.omdbapi.com/?t=" + movieInput + "&y=&plot=short&apikey=40e9cece";
+	console.log(queryUrl);
+	request(queryUrl, function(error, response, body) {
+		if (movieInput !== "undefined" && !error && response.statusCode === 200) {
+			var body = JSON.parse(body);
+			console.log("Movie Title: " + body.Title);
+			console.log("Movie Release Year: " + body.Year);
+			console.log("Movie Country was Produced: " + body.Country);
+			console.log("Language of movie: " + body.Language);
+			console.log("Movie Plot: " + body.Plot);
+			console.log("Movie Actors: " + body.Actors);
+			console.log("Rotten Tomatoes URL: " + body.tomatoURL);
+		} else {
+			console.log("ERROR!");
+		}
+	});
 }
-// Then run a request to the OMDB API with the movie specified
-var queryUrl = "http://www.omdbapi.com/?t=" + movieName + "&y=&plot=short&apikey=c494508d";
-// This line is just to help us debug against the actual URL.
-console.log(queryUrl);
-request(queryUrl, function(error, response, body) {
-  // If the request is successful
-  if (!error && response.statusCode === 200) {
-    // Parse the body of the site and recover just the imdbRating
-    // (Note: The syntax below for parsing isn't obvious. Just spend a few moments dissecting it).
-    console.log("Release Year: " + JSON.parse(body).Year);
-  }
-});
-}
-
-	// request("https://www.omdbapi.com/?t=" + userInput + "&y=&plot=short&apikey=c494508", function(error, response, body) {
- //  // If the request is successful (i.e. if the response status code is 200)
- //    	var data = JSON.parse(body);
- //  	  	console.log("What's being read?");
- //  	  	console.log(data.Title);
-  	// var movieTitle = [];
-  	// var movieReleaseDate = [];
-  	// var movieRating = [];
-  	// var countryProduced = [];
-  	// var movieLanguage = [];
-  	// var moviePlot = [];
-  	// var movieActors = [];
-  	// var rottenTomatoes = [];
-    // console.log("The movie's rating is: " + data.Title);
-   //   * Title of the movie.
-   // * Year the movie came out.
-   // * IMDB Rating of the movie.
-   // * Country where the movie was produced.
-   // * Language of the movie.
-   // * Plot of the movie.
-   // * Actors in the movie.
-   // * Rotten Tomatoes URL.
-// });
-
-// }
