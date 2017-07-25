@@ -75,7 +75,7 @@ function movies() {
 	var queryUrl = "http://www.omdbapi.com/?t=" + movieInput + "&y=&plot=short&apikey=40e9cece";
 	console.log(queryUrl);
 	request(queryUrl, function(error, response, body) {
-		if (movieInput !== "undefined" && !error && response.statusCode === 200) {
+		if (!error && response.statusCode === 200) {
 			var body = JSON.parse(body);
 			console.log("Movie Title: " + body.Title);
 			console.log("Movie Release Year: " + body.Year);
