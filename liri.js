@@ -8,7 +8,6 @@ var action = process.argv[2];
 var userInput = process.argv[3];
 var movieInput = process.argv[4];
 
-// A switch statement that will direct which function gets run.
 switch (action) {
 	case "my-tweets":
 	twitter();
