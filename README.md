@@ -15,14 +15,14 @@ To use:
 * Run node liri.js my-tweets
 This will show my last 20 tweets and when they were created in your terminal/bash window.
 
-* Run node liri.js spotify-this-song '<song name here>'
+* Run node liri.js spotify-this-song 'song name here'
 This will show the following information about the song in your terminal/bash window:
  1. Artist(s)
  2. The song's name
  3. A preview link of the song from Spotify
  4. The album that the song is from
 
- *  Run node liri.js movie-this '<movie name here>'
+ *  Run node liri.js movie-this 'movie name here'
 This will output the following information to your terminal/bash window:
   1. Title of the movie.
   2. Year the movie came out.
